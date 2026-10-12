@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEase | Product Catalog</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html">Shop<span>Ease</span></a>
+  <nav><a class="active" href="index.html">Products</a><a href="cart.html">Cart <span id="cart-count" class="count">0</span></a></nav>
+</header>
+<main class="container">
+  <section class="hero"><div><p class="eyebrow">EVERYDAY FINDS, MADE EASY</p><h1>Find your next favorite.</h1><p>Explore our collection of everyday essentials.</p></div><div class="hero-mark">S<span>+</span></div></section>
+  <section class="toolbar">
+    <label class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search products..." aria-label="Search products"></label>
+    <select id="category" aria-label="Filter by category"><option value="all">All categories</option></select>
+    <select id="sort" aria-label="Sort products"><option value="default">Sort: Featured</option><option value="name-asc">Name: A–Z</option><option value="price-asc">Price: Low to high</option><option value="price-desc">Price: High to low</option><option value="rating-desc">Top rated</option></select>
+  </section>
+  <section class="admin-panel">
+    <button id="toggle-form" class="secondary-btn" type="button">＋ Add a product</button>
+    <form id="add-form" class="add-form hidden">
+      <input id="title" required maxlength="100" placeholder="Product name">
+      <input id="price" required type="number" min="0.01" step="0.01" placeholder="Price (₹)">
+      <select id="new-category" required><option value="">Choose category</option><option>electronics</option><option>jewelery</option><option>men's clothing</option><option>women's clothing</option><option>home</option><option>accessories</option></select>
+      <input id="image" type="url" placeholder="Image URL (optional)">
+      <button class="primary-btn" type="submit">Save product</button>
+    </form>
+    <p id="form-status" class="form-status" role="status"></p>
+  </section>
+  <div class="results-line"><span id="result-count">Loading products…</span><span>Free API · Live product data</span></div>
+  <div id="error-msg" class="error-box hidden" role="alert"><div><strong>We couldn't load the products.</strong><p id="error-detail">Please check your connection and try again.</p></div><button id="retry" class="secondary-btn">Try again</button></div>
+  <div id="spinner" class="spinner-wrap"><div class="spinner"></div><p>Loading the collection…</p></div>
+  <section id="product-grid" class="product-grid" aria-live="polite"></section>
+  <div id="empty-state" class="empty-state hidden"><div>⌕</div><h2>No products found</h2><p>Try another search or category.</p></div>
+  <nav id="pagination" class="pagination" aria-label="Product pages"></nav>
+</main>
+<footer><span>ShopEase</span><span>Thoughtful finds for everyday life.</span></footer>
+<script type="module" src="script.js"></script>
+</body></html>
